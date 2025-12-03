@@ -10,7 +10,6 @@ let persons = [
   { id: 4, name: 'Mary Poppendieck', number: '39-23-6423122' }
 ];
 
-
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
@@ -19,6 +18,13 @@ app.get('/api/persons', (req, res) => {
   res.json(persons)
 })
 
+app.get('/info', (req, res) => {
+  const date = new Date();
+  const total = persons.length;
+  res.send(`<p>Phonebook has info for ${total} people</p>
+    <p>${date}</p>`
+  );
+});
 
 
 const PORT = 3001
